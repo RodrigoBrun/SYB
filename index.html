@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Promt - Base Profesional</title>
+
+  <!-- ✅ Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ✅ AOS Animaciones desde CDN -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.min.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Salud y Bienestar - Tu Portal de Salud Integral">
+  <meta property="og:description" content="Descubre consejos y planes para mejorar tu salud y bienestar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://www.tusitiodesalud.com">
+  <meta property="og:image" content="http://www.tusitiodesalud.com/imagen-og.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- ✅ Estilos personalizados -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/modoOscuro.css" />
+  <link rel="stylesheet" href="css/nutricion.css" />
+  <link rel="stylesheet" href="css/fitness.css" />
+  <link rel="stylesheet" href="css/bienestar.css" />
+</head>
+<body>
+
+ <!-- 🔧 Botón para modo oscuro con ícono dinámico -->
+<button id="btn-modo-oscuro" class="modo-oscuro-toggle">
+  <i class="ph ph-moon"></i>
+</button>
+
+
+<!-- ✅ Navbar superior (PC) -->
+<header class="navbar">
+  <div class="logo">Web Promt</div>
+  <nav class="nav-links" id="nav-links">
+    <a href="#inicio">Inicio</a>
+    <a href="#nutricion">Nutrición</a>
+    <a href="#fitness">Entrenamiento</a>
+    <a href="#bienestar">Bienestar</a>
+    <a href="#profesionales">Profesionales</a>
+    <a href="#recursos">Recursos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú">☰</button>
+</header>
+
+<!-- ✅ Menú lateral en mobile -->
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <nav>
+    <a href="#inicio" onclick="mostrarSeccion('inicio', event)">Inicio</a>
+    <a href="#nutricion" onclick="mostrarSeccion('nutricion', event)">Nutrición</a>
+    <a href="#fitness" onclick="mostrarSeccion('fitness', event)">Entrenamiento</a>
+    <a href="#bienestar" onclick="mostrarSeccion('bienestar', event)">Bienestar</a>
+    <a href="#profesionales" onclick="mostrarSeccion('profesionales', event)">Profesionales</a>
+    <a href="#recursos" onclick="mostrarSeccion('recursos', event)">Recursos</a>
+    <a href="#contacto" onclick="mostrarSeccion('contacto', event)">Contacto</a>
+  </nav>
+</aside>
+
+
+
+
+<!-- 🧱 Sección Hero (primero para evitar espacios en blanco) -->
+<section id="inicio" class="seccion hero" data-aos="fade-up">
+  <h1>Bienvenido a Web Promt</h1>
+  <p>Esta es tu base profesional para crear sitios web.</p>
+</section>
+
+<!-- 🥗 Nutrición (tu sección ya montada va aquí) -->
+<!-- <section id="nutricion" class="seccion"> ... </section> -->
+
+<!-- 🧱 Placeholders (quedarán abajo hasta que agreguemos contenido) -->
+<section id="entrenamiento" class="seccion" data-aos="fade-up"></section>
+<section id="profesionales" class="seccion" data-aos="fade-up"></section>
+<section id="recursos" class="seccion" data-aos="fade-up"></section>
+<section id="contacto" class="seccion" data-aos="fade-up"></section>
+
+
+
+
+<!-- ================================
+     🥗 SECCIÓN NUTRICIÓN
+================================ -->
+<section id="nutricion" class="seccion" data-aos="fade-right" data-aos-duration="900">
+  <div class="contenedor">
+    <h2 class="titulo-seccion">Nutrición</h2>
+    <p class="descripcion-seccion">
+      La nutrición es clave para una vida saludable. Cada cuerpo es diferente y no todas las dietas funcionan igual
+      para todos. Aquí te ayudamos a encontrar la mejor opción según tu objetivo.
+    </p>
+
+    <!-- 🔹 Selector de departamento -->
+    <h3>Selecciona tu departamento para ver los nutricionistas disponibles</h3>
+    <select id="departamentoNutricion" onchange="mostrarNutricionistas()">
+      <option value="" disabled selected>Selecciona un departamento</option>
+      <option value="montevideo">Montevideo</option>
+      <option value="canelones">Canelones</option>
+      <option value="maldonado">Maldonado</option>
+      <option value="artigas">Artigas</option>
+      <option value="rocha">Rocha</option>
+      <option value="salto">Salto</option>
+      <option value="colonia">Colonia</option>
+      <option value="tacuarembo">Tacuarembó</option>
+      <option value="cerro_largo">Cerro Largo</option>
+      <option value="durazno">Durazno</option>
+      <option value="flores">Flores</option>
+      <option value="florida">Florida</option>
+      <option value="lavalleja">Lavalleja</option>
+      <option value="soriano">Soriano</option>
+      <option value="rio_negro">Río Negro</option>
+      <option value="payacu">Paysandú</option>
+      <option value="san_jose">San José</option>
+      <option value="treinta_y_tres">Treinta y Tres</option>
+    </select>
+
+    <!-- 🔹 Contenedor de nutricionistas -->
+    <div id="nutricionistasInfo" class="nutricionistas-info oculto">
+      <h3>Nutricionistas en tu departamento</h3>
+      <div id="listaNutricionistas" class="cards-profesionales"></div>
+    </div>
+
+    <!-- 🔹 Objetivos -->
+    <h3>¿Cuál es tu meta?</h3>
+    <div class="card-container">
+      <article class="card">
+        <h3>Bajar de peso</h3>
+        <p>Descubre consejos y menús para reducir peso de forma saludable.</p>
+        <button onclick="mostrarDieta('bajar')">Ver más</button>
+      </article>
+      <article class="card">
+        <h3>Subir de peso</h3>
+        <p>Planifica tus comidas para ganar masa muscular de manera efectiva.</p>
+        <button onclick="mostrarDieta('subir')">Ver más</button>
+      </article>
+      <article class="card">
+        <h3>Definir</h3>
+        <p>Encuentra el equilibrio perfecto de macronutrientes para definir musculatura.</p>
+        <button onclick="mostrarDieta('definir')">Ver más</button>
+      </article>
+      <article class="card">
+        <h3>Mantenerse saludable</h3>
+        <p>Mantén tu bienestar con opciones de comidas equilibradas.</p>
+        <button onclick="mostrarDieta('mantenerse')">Ver más</button>
+      </article>
+      <article class="card">
+        <h3>Dieta balanceada</h3>
+        <p>Disfruta de una alimentación variada y balanceada para todos los gustos.</p>
+        <button onclick="mostrarDieta('balanceada')">Ver más</button>
+      </article>
+    </div>
+
+    <!-- 🔹 Dieta seleccionada -->
+    <div id="resultadoDieta" class="dieta-info oculto"></div>
+
+    <!-- 🔹 Plan de comidas -->
+    <div id="planComidas" class="plan-comidas oculto">
+      <h3>Ejemplo de menú diario</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Comida</th>
+            <th>Ejemplo</th>
+          </tr>
+        </thead>
+        <tbody id="tablaComidas"></tbody>
+      </table>
+    </div>
+
+    <!-- 🔹 Calculadora de calorías -->
+    <div id="calculadora" class="calculadora-container">
+      <h3><i class="fas fa-calculator"></i> Calculadora de Calorías</h3>
+     <form id="calcForm" onsubmit="event.preventDefault(); calcularCalorias();">
+        <div id="inputsGrid">
+          <!-- Género -->
+          <div class="campo genero-cards">
+            <label>Género:</label>
+            <div class="genero-container">
+              <input type="radio" name="genero" id="radioMasculino" value="masculino" checked>
+              <label for="radioMasculino" class="genero-card">
+                <i class="fas fa-male"></i>
+                <span>Masculino</span>
+              </label>
+              <input type="radio" name="genero" id="radioFemenino" value="femenino">
+              <label for="radioFemenino" class="genero-card">
+                <i class="fas fa-female"></i>
+                <span>Femenino</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" placeholder="Ej: 70" required>
+            <small class="info">Ingresa solo números positivos</small>
+          </div>
+
+          <div class="campo">
+            <label for="altura">Altura (cm):</label>
+            <input type="number" id="altura" placeholder="Ej: 175" required>
+          </div>
+
+          <div class="campo">
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" placeholder="Ej: 25" required>
+          </div>
+
+          <div class="campo">
+            <label for="actividad">Nivel de Actividad:</label>
+            <select id="actividad" required>
+              <option value="1.2">Sedentario</option>
+              <option value="1.375">Ligero</option>
+              <option value="1.55">Moderado</option>
+              <option value="1.725">Activo</option>
+              <option value="1.9">Muy Activo</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="objetivo">Objetivo:</label>
+            <select id="objetivo" required>
+              <option value="mantener">Mantener peso</option>
+              <option value="bajar">Bajar de peso</option>
+              <option value="subir">Subir de peso</option>
+              <option value="definir">Definir</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit">Calcular</button>
+      </form>
+
+      <div id="resultado" class="resultado"></div>
+
+      <div class="chart-card oculto" id="chartContainer">
+        <h4>Distribución de Macronutrientes</h4>
+        <canvas id="macrosChart" width="500" height="300"></canvas>
+        <button id="descargarGrafico">Descargar gráfico</button>
+      </div>
+
+      <button id="shareBtn" class="oculto">Compartir Resultados</button>
+    </div>
+
+    <!-- 🔹 Recetas Flash -->
+    <section id="recetasFlashIntro" class="sub-hero">
+      <div class="sub-hero-content">
+        <h2>Recetas Flash</h2>
+        <p>¿Qué deseas cocinar hoy? Selecciona Desayuno, Almuerzo o Cena.</p>
+      </div>
+    </section>
+
+    <section id="recetasFlash">
+      <div class="container">
+        <div class="card-container small-cards">
+          <article class="card meal-type" onclick="mostrarRecetas('desayuno')">
+            <h3>Desayuno</h3>
+            <img src="imagenes/desayuno-sinfondo.png" alt="Icono de Desayuno">
+          </article>
+          <article class="card meal-type" onclick="mostrarRecetas('almuerzo')">
+            <h3>Almuerzo</h3>
+            <img src="imagenes/almuerzo-sinfondo.png" alt="Icono de Almuerzo">
+          </article>
+          <article class="card meal-type" onclick="mostrarRecetas('cena')">
+            <h3>Cena</h3>
+            <img src="imagenes/cena-sinfondo.png" alt="Icono de Cena">
+          </article>
+        </div>
+        <div id="recetasContainer" class="card-container recetasContainer"></div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- ================================
+     🏋️ SECCIÓN FITNESS
+================================ -->
+
+<section id="fitness" class="seccion" data-aos="fade-left" data-aos-duration="800">
+  <h2>Fitness</h2>
+  <p>Descubre rutinas de ejercicios, planes de entrenamiento y consejos para mantenerte en forma y llevar una vida activa.</p>
+
+  <!-- Selector de departamento -->
+  <h3>Selecciona tu departamento para ver los Personal Trainers disponibles</h3>
+  <select id="departamentoTrainers" onchange="mostrarPersonalTrainners()">
+    <option value="" disabled selected>Selecciona un departamento</option>
+    <option value="montevideo">Montevideo</option>
+    <option value="canelones">Canelones</option>
+    <option value="maldonado">Maldonado</option>
+    <option value="artigas">Artigas</option>
+    <option value="rocha">Rocha</option>
+    <option value="salto">Salto</option>
+    <option value="colonia">Colonia</option>
+    <option value="tacuarembo">Tacuarembó</option>
+    <option value="cerro_largo">Cerro Largo</option>
+    <option value="durazno">Durazno</option>
+    <option value="flores">Flores</option>
+    <option value="florida">Florida</option>
+    <option value="lavalleja">Lavalleja</option>
+    <option value="soriano">Soriano</option>
+    <option value="rio_negro">Río Negro</option>
+    <option value="payacu">Paysandú</option>
+    <option value="san_jose">San José</option>
+    <option value="treinta_y_tres">Treinta y Tres</option>
+  </select>
+
+  <!-- Contenedor de trainers -->
+  <div id="trainersInfo" class="oculto">
+    <h3>Personal Trainers en tu departamento</h3>
+    <div id="listaTrainers" class="cards-profesionales"></div>
+  </div>
+
+  <!-- Rutinas -->
+  <h3>Selecciona tu nivel de experiencia</h3>
+  <select id="nivelExperiencia" onchange="actualizarTodasLasRutinas()">
+    <option value="principiante">Principiante</option>
+    <option value="intermedio">Intermedio</option>
+    <option value="avanzado">Avanzado</option>
+  </select>
+
+  <h3>¿Qué tipo de rutina te interesa?</h3>
+<div class="card-container" id="rutinaCards">
+  <button class="btn-rutina" onclick="mostrarTablaRutina('cardio')">Cardio</button>
+  <button class="btn-rutina" onclick="mostrarTablaRutina('fuerza')">Fuerza</button>
+  <button class="btn-rutina" onclick="mostrarTablaRutina('flexibilidad')">Flexibilidad</button>
+  <button class="btn-rutina" onclick="mostrarTablaRutina('resistencia')">Resistencia</button>
+  <button class="btn-rutina" onclick="mostrarTablaRutina('hiit')">HIIT</button>
+</div>
+
+
+  <!-- Tabla de rutina -->
+  <div id="tablaRutinaContainer" class="rutina-table-container oculto">
+    <button onclick="volverACartas()" class="btn-volver">← Volver</button>
+    <h3 id="tituloTablaRutina"></h3>
+    <table class="tabla-rutina">
+      <thead>
+        <tr>
+          <th>Día</th>
+          <th colspan="4">Actividad</th>
+        </tr>
+      </thead>
+      <tbody id="tablaRutinaContenido">
+        <!-- Contenido generado por JS -->
+      </tbody>
+    </table>
+    <br>
+    <button id="descargarRutinaBtn" class="descargar-btn">Descargar rutina 📥</button>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+     🧘‍♀️ Sección Bienestar
+=============================== -->
+<section id="bienestar" class="seccion">
+          <h2>Bienestar</h2>
+          <p>El bienestar no solo es físico, sino también mental. Aprende técnicas de relajación, mindfulness y
+            estrategias para una vida equilibrada.</p>
+
+          <!-- Sección para seleccionar el departamento -->
+          <h3>Selecciona tu departamento para ver los psicologos disponibles</h3>
+          <select id="departamentoPsicologos" onchange="mostrarPsicologos()">
+            <option value="" disabled selected>Selecciona un departamento</option>
+            <option value="montevideo">Montevideo</option>
+            <option value="canelones">Canelones</option>
+            <option value="maldonado">Maldonado</option>
+            <option value="artigas">Artigas</option>
+            <option value="rocha">Rocha</option>
+            <option value="salto">Salto</option>
+            <option value="colonia">Colonia</option>
+            <option value="tacuarembo">Tacuarembó</option>
+            <option value="cerro_largo">Cerro Largo</option>
+            <option value="durazno">Durazno</option>
+            <option value="flores">Flores</option>
+            <option value="florida">Florida</option>
+            <option value="lavalleja">Lavalleja</option>
+            <option value="soriano">Soriano</option>
+            <option value="rio_negro">Río Negro</option>
+            <option value="payacu">Paysandú</option>
+            <option value="san_jose">San José</option>
+            <option value="treinta_y_tres">Treinta y Tres</option>
+          </select>
+
+          <!-- Contenedor para mostrar psicólogos -->
+          <div id="psicologosInfo" style="display: none;">
+            <h3>Psicólogos en tu departamento</h3>
+            <div id="listaPsicologos" class="cards-profesionales"></div>
+          </div>
+
+
+
+          <h3>¿Qué aspecto del bienestar te interesa?</h3>
+          <div class="bienestar-grid">
+            <div class="bienestar-card">
+              <h4><i class="fas fa-spa"></i> Relajación</h4><button onclick="mostrarBienestar('relajacion')">Ver
+                Detalles</button>
+            </div>
+            <div class="bienestar-card">
+              <h4><i class="fas fa-brain"></i> Mindfulness</h4><button onclick="mostrarBienestar('mindfulness')">Ver
+                Detalles</button>
+            </div>
+            <div class="bienestar-card">
+              <h4><i class="fas fa-heart"></i> Hábitos saludables</h4><button onclick="mostrarBienestar('habitos')">Ver
+                Detalles</button>
+            </div>
+            <div class="bienestar-card">
+              <h4><i class="fas fa-moon"></i> Mejorar el sueño</h4><button onclick="mostrarBienestar('suenio')">Ver
+                Detalles</button>
+            </div>
+            <div class="bienestar-card">
+              <h4><i class="fas fa-hand-holding-heart"></i> Manejo del estrés</h4><button
+                onclick="mostrarBienestar('estres')">Ver Detalles</button>
+            </div>
+            <div class="bienestar-card">
+              <h4><i class="fas fa-water"></i> Hidratación</h4><button onclick="mostrarBienestar('hidratacion')">Ver
+                Detalles</button>
+            </div>
+            <div class="bienestar-card">
+              <h4><i class="fas fa-running"></i> Ejercicio físico</h4><button
+                onclick="mostrarBienestar('ejercicio')">Ver Detalles</button>
+            </div>
+            <div class="bienestar-card">
+              <h4><i class="fas fa-leaf"></i> Alimentación balanceada</h4><button
+                onclick="mostrarBienestar('alimentacion')">Ver Detalles</button>
+            </div>
+          </div>
+
+  </div>
+
+  <div id="resultadoBienestar" class="bienestar-info oculto" aria-live="polite">
+    <button onclick="volverABienestar()" class="btn-volver">← Volver</button>
+    <div id="contenidoBienestar"></div>
+  </div>
+
+
+  <!-- Generador de Plan de Bienestar -->
+  <div class="plan-bienestar">
+    <h3>🧘‍♀️ Genera tu Plan de Bienestar Personalizado</h3>
+    <label for="interes">¿Qué te gustaría mejorar?</label>
+    <select id="interes">
+      <option value="relajacion">Relajación</option>
+      <option value="mindfulness">Mindfulness</option>
+      <option value="habitos">Hábitos saludables</option>
+      <option value="suenio">Sueño</option>
+      <option value="estres">Estrés</option>
+    </select>
+    <button type="button" onclick="generarPlanBienestar()">Generar Plan</button>
+  </div>
+  <div id="planBienestar" class="plan-info" aria-live="polite"></div>
+
+  <!-- Test de Bienestar -->
+<div class="autoevaluacion">
+  <h3>📋 ¿Cómo está tu bienestar?</h3>
+  <form id="bienestarTest">
+
+    <div class="pregunta">
+      <label>¿Te sientes estresado últimamente?</label>
+      <div class="pregunta-opciones">
+        <label><input type="radio" name="estresTest" value="si"> Sí</label>
+        <label><input type="radio" name="estresTest" value="no"> No</label>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <label>¿Tu sueño es reparador?</label>
+      <div class="pregunta-opciones">
+        <label><input type="radio" name="suenioTest" value="si"> Sí</label>
+        <label><input type="radio" name="suenioTest" value="no"> No</label>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <label>¿Tienes una alimentación balanceada?</label>
+      <div class="pregunta-opciones">
+        <label><input type="radio" name="alimentacionTest" value="si"> Sí</label>
+        <label><input type="radio" name="alimentacionTest" value="no"> No</label>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <label>¿Realizas ejercicio regularmente?</label>
+      <div class="pregunta-opciones">
+        <label><input type="radio" name="actividadTest" value="si"> Sí</label>
+        <label><input type="radio" name="actividadTest" value="no"> No</label>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <label>¿Te sientes emocionalmente equilibrado?</label>
+      <div class="pregunta-opciones">
+        <label><input type="radio" name="emocionesTest" value="si"> Sí</label>
+        <label><input type="radio" name="emocionesTest" value="no"> No</label>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <label>¿Te sientes satisfecho con tu vida en general?</label>
+      <div class="pregunta-opciones">
+        <label><input type="radio" name="satisfaccionTest" value="si"> Sí</label>
+        <label><input type="radio" name="satisfaccionTest" value="no"> No</label>
+      </div>
+    </div>
+
+    <!-- Barra de Progreso -->
+    <div id="progress-bar" class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+
+    <button type="button" onclick="mostrarResultadosTest()">Ver Resultados</button>
+  </form>
+</div>
+
+<div id="testResultados" class="test-info" aria-live="polite"></div>
+
+
+
+<!-- Librerías -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Chart.js + DataLabels -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+
+<!-- Registrar el plugin (necesario para Chart v4) -->
+<script>
+  if (window.Chart && window.ChartDataLabels) {
+    Chart.register(ChartDataLabels);
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<!-- Datos / Sistema (DEBE ir antes de la UI) -->
+<script src="js/clases.js"></script>
+
+<!-- UI -->
+<script src="js/main.js"></script>
+<script src="js/nutricion.js"></script>
+<script src="js/fitness.js"></script>
+<script src="js/bienestar.js"></script>
+
+</body>
+</html>

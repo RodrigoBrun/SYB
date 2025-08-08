@@ -1,0 +1,271 @@
+/* =========================================
+   🌿 Bienestar – Estilo alineado a la web
+========================================= */
+#bienestar {
+  background: var(--color-card-background);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px var(--color-sombra);
+}
+
+#bienestar h2,
+#bienestar h3 {
+  color: var(--color-texto);
+}
+
+#bienestar p {
+  color: var(--color-texto-secundario);
+}
+
+/* Select depto */
+#bienestar select {
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--color-principal);
+  color: var(--color-texto-claro);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ---------- Cards de categorías ---------- */
+.bienestar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.bienestar-card {
+  background: var(--color-card-background);
+  border: 2px solid var(--color-borde-boton);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 12px var(--color-sombra);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bienestar-card h4 {
+  margin: 0;
+  color: var(--color-texto);
+}
+
+.bienestar-card button {
+  background: var(--color-principal);
+  color: var(--color-texto-claro);
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.bienestar-card button:hover {
+  background: var(--color-boton-hover);
+}
+
+/* Resultado “Ver Detalles” */
+.bienestar-info.oculto { display: none; }
+.bienestar-info {
+  margin-top: 18px;
+  background: var(--color-card-background);
+  border-left: 6px solid var(--color-principal);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 12px var(--color-sombra);
+}
+.bienestar-grid.oculto { display: none; }
+
+.btn-volver {
+  background: var(--color-principal);
+  color: var(--color-texto-claro);
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.btn-volver:hover { background: var(--color-boton-hover); }
+
+/* ---------- Cards de Profesionales (psicólogos) ---------- */
+.card-psico {
+  background: var(--color-card-background);
+  border: 2px solid var(--color-borde-boton);
+  border-radius: 20px;
+  padding: 22px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 10px 25px var(--color-sombra);
+  transition: transform 300ms ease;
+}
+.card-psico:hover { transform: translateY(-4px); }
+
+.card-psico img {
+  width: 90px; height: 90px; border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-principal);
+  margin-bottom: 12px;
+}
+.card-psico h4 { color: var(--color-texto); margin-bottom: 8px; }
+
+.card-psico .datos { text-align: left; }
+.card-psico .datos p {
+  margin: 6px 0;
+  color: var(--color-texto-secundario);
+  display: flex; align-items: center; gap: 6px;
+}
+.card-psico .datos p i { color: var(--color-secundario); }
+
+.card-psico .info-observacion {
+  margin-top: 10px; padding: 10px;
+  background: var(--color-card-background);
+  border-left: 4px solid var(--color-borde-boton);
+  border-radius: 8px; font-style: italic;
+}
+
+.card-psico .redes-psico { margin-top: 12px; }
+.card-psico .redes-psico a {
+  font-size: 1.3rem; margin: 0 8px; color: var(--color-principal);
+  transition: transform 200ms ease, color 200ms ease;
+}
+.card-psico .redes-psico a:hover {
+  transform: scale(1.1); color: var(--color-boton-hover);
+}
+
+/* ---------- Generador de Plan ---------- */
+.plan-bienestar, .plan-info, .autoevaluacion, .test-info {
+  background: var(--color-card-background);
+  border-radius: 15px;
+  box-shadow: 0 6px 12px var(--color-sombra);
+  padding: 18px;
+  margin-top: 18px;
+}
+.plan-bienestar button {
+  background: var(--color-secundario);
+  color: var(--color-fondo);
+  border: 0; padding: 10px 14px; border-radius: 10px; cursor: pointer;
+}
+.plan-bienestar button:hover { background: var(--color-boton-hover); }
+
+.plan-box h4, .test-box h4 { margin-top: 0; }
+
+  /* Test de Bienestar */
+  .autoevaluacion {
+    margin-top: 40px;
+  }
+  
+  #bienestarTest {
+    padding: 25px;
+    padding-left: 100px; /* Añadimos un margen interno a la izquierda */
+    background: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    text-align: left;
+  }
+  
+  /* Contenedor de cada pregunta */
+.pregunta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* separación entre la pregunta y las opciones */
+  padding: 12px;
+  background: var(--color-card-background);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px var(--color-sombra);
+  margin-bottom: 15px;
+}
+
+/* Texto de la pregunta */
+.pregunta > label:first-child {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--color-texto);
+}
+
+/* Contenedor de opciones (Sí / No) */
+.pregunta-opciones {
+  display: flex;
+  gap: 20px; /* separación entre Sí y No */
+  align-items: center;
+}
+
+/* Radio y texto al lado */
+.pregunta-opciones label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Radio más visible */
+.pregunta-opciones input[type="radio"] {
+  accent-color: var(--bienestar-accent);
+  width: 18px;
+  height: 18px;
+}
+
+  
+  .pregunta label:first-of-type {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 10px;
+  }
+  
+  .pregunta input[type="radio"] {
+    margin-right: 8px;
+    accent-color: var(--secondary-color);
+  }
+  
+  #bienestarTest button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 25px;
+    width: 100%;
+    transition: background 0.3s ease;
+  }
+  
+  #bienestarTest button:hover {
+    background-color: var(--primary-color);
+  }
+  /* Barra de Progreso */
+.progress-bar {
+  width: 100%;
+  height: 25px;
+  background-color: var(--color-card-background); /* Fondo neutro del sitio */
+  border-radius: 12px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background-color: var(--bienestar-accent); /* Color principal de Bienestar */
+  transition: width 0.4s ease;
+}
+
+/* Resultados del Test */
+#testResultados {
+  margin-top: 20px;
+  padding: 25px;
+  background: var(--bienestar-accent-soft); /* Fondo suave de Bienestar */
+  border-radius: 10px;
+  font-weight: bold;
+  color: var(--color-texto); /* Texto principal */
+  box-shadow: 0 5px 15px var(--color-sombra);
+  font-size: 1.2rem;
+  text-align: center;
+}
+

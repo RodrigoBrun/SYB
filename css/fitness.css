@@ -1,0 +1,287 @@
+/* =========================================
+   🏋️ Sección Fitness (tema alineado a Nutrición)
+   - Usa la paleta global y los acentos de Fitness
+========================================= */
+#fitness {
+  padding: 40px;
+  background-color: var(--color-card-background); /* fondo de contenedor */
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 6px 12px var(--color-sombra);     /* sombra consistente */
+}
+
+/* Select de departamento (Fitness) */
+#fitness select {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  background-color: var(--color-principal); /* mismo que usamos en Nutrición */
+  color: var(--color-texto-claro);          /* contraste claro */
+}
+
+/* =========================================
+   👤 Cards de Personal Trainers
+   - Misma lógica visual que card-nutricionista
+========================================= */
+.card-trainer {
+  background: var(--color-card-background);       /* sin gradientes duros */
+  border: 2px solid var(--fitness-accent);        /* borde con acento fitness */
+  border-radius: 20px;
+  padding: 24px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 10px 25px var(--color-sombra);
+  transition: transform var(--transition, 300ms ease);
+}
+
+.card-trainer:hover {
+  transform: translateY(-5px);
+}
+
+.card-trainer img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--fitness-accent);        /* aro con acento */
+  margin-bottom: 14px;
+}
+
+.card-trainer h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  margin-bottom: 10px;
+}
+
+.card-trainer p {
+  font-size: 0.95rem;
+  color: var(--color-texto-secundario);
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.card-trainer p strong {
+  color: var(--color-principal);                  /* enfatizar con primario global */
+  font-weight: 600;
+}
+
+.card-trainer .datos {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.card-trainer .datos p {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.card-trainer .datos p i {
+  margin-right: 6px;
+  color: var(--fitness-accent);                   /* iconos con acento */
+}
+
+.card-trainer a {
+  word-break: break-word;
+  color: inherit; /* respeta el color del texto del contenedor */
+  text-decoration: none;
+}
+
+.card-trainer .redes-trainer {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.card-trainer .redes-trainer a {
+  font-size: 1.4rem;
+  margin: 0 12px;
+  color: var(--fitness-accent);
+  transition: transform var(--transition, 300ms ease), color var(--transition, 300ms ease);
+}
+
+.card-trainer .redes-trainer a:hover {
+  transform: scale(1.2);
+  color: var(--color-boton-hover);                /* hover consistente */
+}
+
+.card-trainer .info-observacion {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: var(--color-card-background);
+  border-left: 4px solid var(--fitness-accent);
+  font-style: italic;
+  color: var(--color-texto);
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.card-trainer .info {
+  color: var(--color-texto);
+  font-weight: 200;
+  text-shadow: none !important;
+}
+
+/* =========================================
+   🎛️ Botonera de tipos de rutina (Fitness)
+   - Clase separada para no afectar otros botones
+========================================= */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card-container .btn-rutina {
+  padding: 15px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--fitness-accent); /* acento fitness */
+  color: var(--fitness-contrast);          /* texto blanco */
+  cursor: pointer;
+  transition: background var(--transition, 300ms ease), transform var(--transition, 300ms ease);
+}
+
+.card-container .btn-rutina:hover {
+  background-color: var(--color-boton-hover); /* usa hover global para cohesión */
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   📋 Tabla de Rutinas — Fitness
+   - Oculta al iniciar
+   - Días en una sola línea (sin romper)
+   - Layout estable y centrado
+========================================= */
+
+/* 📴 Estado inicial: SIEMPRE oculta */
+#tablaRutinaContainer {
+  display: none;
+}
+
+/* 🧱 Contenedor visual de la tabla */
+.rutina-table-container {
+  background: var(--color-card-background);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px var(--color-sombra);
+  max-width: 900px;
+  margin: 0 auto; /* centrado */
+}
+
+/* 🗂️ Tabla sin “corrimientos” y con aire entre celdas */
+.tabla-rutina {
+  width: 100%;
+  table-layout: auto;          /* ✅ deja que el contenido defina ancho, evita cortes raros */
+  border-collapse: separate;   /* para respetar radios por celda */
+  border-spacing: 12px 10px;   /* separación suave entre celdas */
+  margin: 0;
+}
+
+/* Celdas base */
+.tabla-rutina th,
+.tabla-rutina td {
+  padding: 14px 16px;
+  border: 2px solid var(--fitness-accent);
+  border-radius: 12px;
+  font-weight: 600;
+  color: var(--color-texto);
+  vertical-align: middle;
+  /* ❌ Evita que se corten palabras/ letras en vertical */
+  white-space: nowrap;
+  word-break: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Encabezados */
+.tabla-rutina th {
+  background-color: var(--fitness-accent);
+  color: var(--fitness-contrast);
+  text-align: center;
+}
+
+/* 🟣 Columna “Día” (badge) */
+.tabla-rutina th:first-child,
+.tabla-rutina td:first-child {
+  background-color: var(--fitness-accent-soft);
+  color: var(--fitness-contrast);
+  text-align: center;
+  min-width: 140px;  /* ✅ ancho suficiente para "Miércoles" */
+  max-width: 220px;
+}
+
+/* 📄 Columna “Actividad” */
+.tabla-rutina th:nth-child(2),
+.tabla-rutina td:nth-child(2) {
+  color: var(--color-texto);
+  white-space: normal;   /* que pueda ocupar varias líneas si hace falta */
+  font-weight: 600;
+}
+
+/* 📱 Ajustes para pantallas chicas */
+@media (max-width: 480px) {
+  .rutina-table-container {
+    padding: 16px;
+  }
+  .tabla-rutina {
+    border-spacing: 8px;
+  }
+  .tabla-rutina th:first-child,
+  .tabla-rutina td:first-child {
+    min-width: 110px;  /* un poco más compacta en mobile */
+  }
+}
+
+
+
+/* =========================================
+   ⏪ Botón volver + Descargar
+========================================= */
+.btn-volver {
+  background-color: var(--fitness-accent);
+  color: var(--fitness-contrast);
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: background var(--transition, 300ms ease), transform var(--transition, 300ms ease);
+}
+
+.btn-volver:hover {
+  background-color: var(--color-boton-hover);
+  transform: translateY(-1px);
+}
+
+#tituloTablaRutina {
+  color: var(--color-texto) !important;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 20px 0;
+  text-align: center;
+  text-shadow: 1px 1px 2px var(--color-sombra);
+}
+
+.descargar-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: var(--fitness-accent);
+  color: var(--fitness-contrast);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color var(--transition, 300ms ease), transform var(--transition, 300ms ease);
+}
+
+.descargar-btn:hover {
+  background-color: var(--color-boton-hover);
+  transform: translateY(-1px);
+}

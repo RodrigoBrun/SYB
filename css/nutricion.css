@@ -1,0 +1,533 @@
+/* =========================================
+   🎯 Sección: Nutrición
+========================================= */
+/* 🎯 Sección Nutrición - Caja principal */
+#nutricion {
+    background: var(--color-card-background); /* Usa variable nueva */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--color-sombra); /* Usa variable nueva */
+    margin: 20px 0;
+}
+
+#nutricion h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-principal);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid var(--color-principal);
+    text-align: center;
+}
+
+#nutricion h3 {
+    margin-top: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+#nutricion p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--light-text);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+#nutricion ul {
+    list-style: none;
+    margin: 10px 0;
+}
+
+#nutricion ul li {
+    margin: 10px 0;
+}
+
+#nutricion select {
+    width: 50%;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    background-color: var(--color-principal);
+    color: var(--color-fondo);
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0px 4px 8px var(--color-principal);
+}
+
+#nutricionistasInfo {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--color-secundario);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--color-principal);
+    text-align: center;
+}
+
+#listaNutricionistas li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--color-texto);
+    font-weight: 600;
+}
+
+#noDisponibles {
+    font-size: 1.2rem;
+    color: var(--color-boton-hover);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   🎯 Cartas de Nutricionistas
+   - Adaptado a variables existentes en :root
+========================================= */
+.card-nutricionista {
+    background: linear-gradient(145deg, var(--color-fondo), var(--color-header));
+    border: 2px solid var(--color-borde-boton);
+    border-radius: 20px;
+    padding: 24px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.card-nutricionista:hover {
+    transform: translateY(-5px);
+}
+
+.card-nutricionista img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-principal);
+    margin-bottom: 14px;
+}
+
+.card-nutricionista h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-texto);
+    margin-bottom: 10px;
+}
+
+.card-nutricionista p {
+    font-size: 0.95rem;
+    color: var(--color-texto-secundario);
+    margin: 6px 0;
+    line-height: 1.4;
+}
+
+.card-nutricionista p strong {
+    color: var(--color-principal);
+    font-weight: 600;
+}
+
+.card-nutricionista .datos {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.card-nutricionista .datos p {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.card-nutricionista .datos p i {
+    margin-right: 6px;
+    color: var(--color-secundario);
+}
+
+.card-nutricionista a {
+    word-break: break-word;
+}
+
+.card-nutricionista .info-observacion {
+    margin-top: 12px;
+    padding: 10px;
+    background-color: var(--color-header);
+    border-left: 4px solid var(--color-boton-hover);
+    font-style: italic;
+    color: var(--color-texto);
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.card-nutricionista .redes-nutricionista {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.card-nutricionista .redes-nutricionista a {
+    font-size: 1.4rem;
+    margin: 0 12px;
+    color: var(--color-principal);
+    transition: transform 0.3s ease;
+}
+
+.card-nutricionista .redes-nutricionista a:hover {
+    transform: scale(1.2);
+    color: var(--color-boton-hover);
+}
+
+.card-nutricionista .info {
+    color: var(--color-texto);
+    display: inline-block;
+    word-break: break-word;
+}
+
+
+/* =========================================
+   🎯 Tarjetas de Objetivos y Botones
+   - Colores fijos reemplazados por variables existentes
+========================================= */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: var(--color-header); /* Antes rgba(210, 180, 140, 0.7) */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 10px var(--shadow-color);
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--color-texto); /* Antes var(--text-color) */
+}
+
+.card p {
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-bottom: 20px;
+}
+
+.card button {
+    background-color: var(--color-principal);
+    color: var(--color-fondo);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.card button:hover {
+    background-color: var(--color-boton-hover); /* Antes var(--hover-accent) */
+    transform: scale(1.03);
+}
+
+
+/* =========================================
+   🎯 Recetas Flash
+   🔹 Adaptado para usar variables de color ya definidas en :root
+========================================= */
+.recetasContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.receta {
+    background-color: var(--color-fondo); /* Antes: var(--card-background) */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    animation: popUp 0.5s ease-in-out;
+}
+
+.receta img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.receta h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: var(--color-texto); /* Antes: var(--text-color) */
+}
+
+.receta p {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario); /* Antes: var(--light-text) */
+}
+
+
+/* =========================================
+   🎯 Calculadora de Calorías
+   🔹 Adaptado para usar solo variables existentes en :root
+========================================= */
+#calculadora {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--color-fondo); /* Antes: var(--card-background) */
+    border-radius: 15px;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+#calculadora h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--color-texto); /* Antes: var(--text-color) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#inputsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    #inputsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.campo label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-texto); /* Antes: var(--text-color) */
+}
+
+.campo input,
+.campo select {
+    border-radius: 15px;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: var(--color-fondo);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.campo .info {
+    font-size: 0.8rem;
+    color: var(--color-texto-secundario); /* Antes: var(--light-text) */
+}
+
+.genero-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.genero-container input[type="radio"] {
+    display: none;
+}
+
+.genero-card {
+    background-color: rgba(240, 236, 228, 0.6);
+    border: 2px solid var(--color-principal);
+    border-radius: 10px;
+    padding: 15px 25px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.genero-card:hover {
+    background-color: var(--color-fondo); /* Antes: var(--card-background) */
+}
+
+.genero-container input[type="radio"]:checked + .genero-card {
+    background-color: var(--color-principal);
+    color: var(--color-fondo);
+    transform: scale(1.05);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: var(--color-principal);
+    color: var(--color-fondo);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--color-secundario); /* Antes: var(--hover-accent) */
+    transform: scale(1.05);
+}
+
+#resultado {
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--color-principal), var(--color-borde-boton));
+    border-left: 6px solid var(--color-principal);
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--color-fondo);
+    text-align: left;
+    min-height: 80px;
+}
+
+
+/* =========================================
+   📊 Card del gráfico de macros (Chart.js)
+   - Fondo ahora usa --color-header (antes un rgba café fijo)
+   - Textos usan --color-texto
+   - Borde del canvas usa --color-texto para coherencia
+   - Sombra neutral (evitamos var(--shadow-color) inexistente)
+========================================= */
+.chart-card {
+  margin-top: 20px;
+  background: var(--color-header); /* antes: rgba(210,180,140,0.7) */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12); /* fallback neutro */
+  text-align: center;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.chart-card h4 {
+  margin-bottom: 10px;
+  color: var(--color-texto); /* antes: var(--text-color) */
+}
+
+/* Canvas del gráfico
+   - Anchos/altos se conservan
+   - Borde ahora toma --color-texto
+*/
+#macrosChart {
+  width: 100% !important;
+  max-width: 500px;
+  height: 500px !important;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid var(--color-texto); /* antes: var(--text-color) */
+  border-radius: 10px;
+}
+
+#shareBtn {
+    background-color: var(--color-secundario);
+    color: var(--color-fondo);
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: none;
+    width: 100%;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+#shareBtn:hover {
+    background-color: var(--color-principal);
+}
+
+
+/* Botón Descargar gráfico */
+#descargarGrafico {
+  background-color: var(--color-boton);
+  color: #fff;
+  padding: 10px 20px;
+  border: 2px solid var(--color-borde-boton);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#descargarGrafico:hover {
+  background-color: var(--color-boton-hover);
+  transform: scale(1.05);
+}
+
+#descargarGrafico:active {
+  transform: scale(0.97);
+}
+
+#descargarGrafico:focus {
+  outline: 2px solid var(--color-secundario);
+  outline-offset: 3px;
+}
+
+
+
+/* 🎯 Contenedor del resultado de la dieta
+   - Muestra la información del objetivo elegido en la sección Nutrición
+   - Se adaptó para usar las variables globales de color */
+#resultadoDieta {
+    background-color: var(--color-principal); /* Fondo principal */
+    padding: 30px;
+    margin: 30px auto;
+    border-radius: 15px;
+    max-width: 90%;
+    box-shadow: 0 10px 20px var(--color-borde-boton); /* Usar color del borde del botón para coherencia */
+    text-align: center;
+    color: var(--color-fondo); /* Texto claro sobre fondo oscuro */
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(90, 60, 40, 0.4);
+    animation: fadeIn 0.4s ease;
+}
+
+
+/* Ajuste de imágenes en Recetas Flash */
+.meal-type img {
+    max-width: 100%;
+    height: 150px;       /* mismo alto que usas en .receta img */
+    object-fit: cover;   /* recorta para que encaje sin deformar */
+    border-radius: 8px;  /* redondeo para que combine con la tarjeta */
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .meal-type img {
+        height: 120px; /* más bajo en pantallas pequeñas */
+    }
+}

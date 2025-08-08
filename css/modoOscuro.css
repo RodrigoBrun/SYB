@@ -1,0 +1,61 @@
+
+ :root {
+ /* 🌙 Modo oscuro */
+  --oscuro-fondo: #121212;
+  --oscuro-texto: #f1f1f1;
+  --oscuro-header: #1f1f1f;
+  --oscuro-boton: #00bfa6;
+  --oscuro-boton-hover: #008f7a;
+}
+
+/* =====================================
+   🌙 Botón modo oscuro
+===================================== */
+.modo-oscuro-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--color-boton);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+
+  /* ✅ Centrado del ícono dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* ✅ Sombra opcional */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ✅ Estilo directo para el ícono dentro del botón */
+.modo-oscuro-toggle i {
+  font-size: 22px;
+}
+
+
+/* =====================================
+   🌘 Estilos en modo oscuro
+===================================== */
+body.modo-oscuro {
+  background-color: var(--oscuro-fondo);
+  color: var(--oscuro-texto);
+}
+
+body.modo-oscuro .navbar,
+body.modo-oscuro .sidebar {
+  background-color: var(--oscuro-header);
+}
+
+body.modo-oscuro .modo-oscuro-toggle {
+  background-color: var(--oscuro-boton);
+}
+
+body.modo-oscuro .modo-oscuro-toggle:hover {
+  background-color: var(--oscuro-boton-hover);
+}
