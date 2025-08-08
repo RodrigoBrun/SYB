@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="css/nutricion.css" />
   <link rel="stylesheet" href="css/fitness.css" />
   <link rel="stylesheet" href="css/bienestar.css" />
+  <link rel="stylesheet" href="css/contacto.css" />
 </head>
 <body>
 
@@ -41,7 +42,7 @@
 
 <!-- ✅ Navbar superior (PC) -->
 <header class="navbar">
-  <div class="logo">Web Promt</div>
+  <div class="logo">Salud y bienestar UY</div>
   <nav class="nav-links" id="nav-links">
     <a href="#inicio">Inicio</a>
     <a href="#nutricion">Nutrición</a>
@@ -72,18 +73,31 @@
 
 <!-- 🧱 Sección Hero (primero para evitar espacios en blanco) -->
 <section id="inicio" class="seccion hero" data-aos="fade-up">
-  <h1>Bienvenido a Web Promt</h1>
-  <p>Esta es tu base profesional para crear sitios web.</p>
+  <h2>Bienvenido a tu sitio de Salud y Bienestar</h2>
+        <p>Aquí encontrarás consejos de nutrición, rutinas de ejercicio y estrategias para mejorar tu calidad de vida.
+        </p>
+        <!-- Anuncio dentro del contenido -->
+        <div class="ad-banner ad-in-content" aria-label="Anuncio">
+          <p>Espacio publicitario</p>
+        </div>
+        <p></p>
+
+        <!-- Anuncio en la cabecera -->
+      <div class="ad-banner-kine" aria-label="Publicidad de kinesiología">
+        <a href="https://rodrigobrun.github.io/Claudia-Kinesiologia/#" target="_blank">
+          <span class="emoji">🥴</span> ¿Sientes algún dolor muscular? 
+          <span class="link-kine">Visita una kinesióloga profesional</span> 🧘‍♀️
+        </a>
+      </div>
 </section>
 
 <!-- 🥗 Nutrición (tu sección ya montada va aquí) -->
 <!-- <section id="nutricion" class="seccion"> ... </section> -->
 
 <!-- 🧱 Placeholders (quedarán abajo hasta que agreguemos contenido) -->
-<section id="entrenamiento" class="seccion" data-aos="fade-up"></section>
 <section id="profesionales" class="seccion" data-aos="fade-up"></section>
 <section id="recursos" class="seccion" data-aos="fade-up"></section>
-<section id="contacto" class="seccion" data-aos="fade-up"></section>
+
 
 
 
@@ -372,7 +386,7 @@
 <!-- ===============================
      🧘‍♀️ Sección Bienestar
 =============================== -->
-<section id="bienestar" class="seccion">
+<section id="bienestar" class="seccion" data-aos="fade-right" data-aos-duration="900">
           <h2>Bienestar</h2>
           <p>El bienestar no solo es físico, sino también mental. Aprende técnicas de relajación, mindfulness y
             estrategias para una vida equilibrada.</p>
@@ -526,11 +540,31 @@
       <div id="progress" class="progress"></div>
     </div>
 
-    <button type="button" onclick="mostrarResultadosTest()">Ver Resultados</button>
+   <button type="button" class="btn-principal" onclick="mostrarResultadosTest()">Ver Resultados</button>
+
   </form>
 </div>
 
 <div id="testResultados" class="test-info" aria-live="polite"></div>
+
+</section>
+
+
+
+ <!-- Sección Contacto Rediseñada -->
+  <section id="contacto" class="seccion" data-aos="fade-right" data-aos-duration="900">
+    <div class="contacto-destacado">
+      <h2>¿Te interesa formar parte del movimiento de Salud y Bienestar en Uruguay?</h2>
+      <p>💚 Si sos nutricionista, entrenador, psicólogo o profesional de la salud — o simplemente te apasiona mejorar
+        vidas — <strong>¡no dudes en contactarte con nosotros!</strong></p>
+      <p class="contacto-mail">📧 Escribinos a: <a
+          href="mailto:rodrigobrun.code@gmail.com">rodrigobrun.code@gmail.com</a></p>
+    </div>
+  </section>
+
+
+
+
 
 
 
