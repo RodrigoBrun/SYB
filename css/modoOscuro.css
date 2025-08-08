@@ -1,9 +1,13 @@
-
- :root {
- /* 🌙 Modo oscuro */
+:root {
+  /* 🌙 Modo oscuro (base) */
   --oscuro-fondo: #121212;
   --oscuro-texto: #f1f1f1;
   --oscuro-header: #1f1f1f;
+  --oscuro-superficie: #1b1b1b;      /* tarjetas / secciones */
+  --oscuro-borde: #2a2a2a;
+  --oscuro-sombra: rgba(0, 0, 0, 0.6);
+  --oscuro-texto-suave: #cfcfcf;
+
   --oscuro-boton: #00bfa6;
   --oscuro-boton-hover: #008f7a;
 }
@@ -17,45 +21,180 @@
   right: 20px;
   background: var(--color-boton);
   border: none;
-  color: white;
+  color: #fff;
   font-size: 20px;
   padding: 14px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 1001;
-
-  /* ✅ Centrado del ícono dentro del botón */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* ✅ Sombra opcional */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
-
-/* ✅ Estilo directo para el ícono dentro del botón */
-.modo-oscuro-toggle i {
-  font-size: 22px;
-}
-
+.modo-oscuro-toggle i { font-size: 22px; }
 
 /* =====================================
    🌘 Estilos en modo oscuro
+   - Reasigna variables globales
+   - Cubre superficies comunes (cards/inputs/etc.)
 ===================================== */
 body.modo-oscuro {
-  background-color: var(--oscuro-fondo);
-  color: var(--oscuro-texto);
+  /* 1) Re-define la paleta a oscuro */
+  --color-fondo: var(--oscuro-fondo);
+  --color-texto: var(--oscuro-texto);
+  --color-texto-secundario: var(--oscuro-texto-suave);
+
+  --color-header: var(--oscuro-header);
+  --color-card-background: var(--oscuro-superficie);
+  --color-borde-boton: var(--oscuro-borde);
+  --color-sombra: var(--oscuro-sombra);
+
+  --color-boton: var(--oscuro-boton);
+  --color-boton-hover: var(--oscuro-boton-hover);
+  --color-texto-claro: #ffffff; /* texto sobre superficies oscuras */
+
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
 }
 
+/* Header / sidebar */
 body.modo-oscuro .navbar,
 body.modo-oscuro .sidebar {
-  background-color: var(--oscuro-header);
+  background-color: var(--color-header);
+  color: var(--color-texto);
+  border-color: var(--oscuro-borde);
 }
 
+/* Botón flotante */
 body.modo-oscuro .modo-oscuro-toggle {
   background-color: var(--oscuro-boton);
 }
-
 body.modo-oscuro .modo-oscuro-toggle:hover {
   background-color: var(--oscuro-boton-hover);
+}
+
+/* 2) Superficies comunes que suelen quedar blancas */
+body.modo-oscuro .seccion,
+body.modo-oscuro .card,
+body.modo-oscuro .card *:where(.inner-bg),
+body.modo-oscuro .card-trainer,
+body.modo-oscuro .card-psico,
+body.modo-oscuro .bienestar-card,
+body.modo-oscuro .plan-bienestar,
+body.modo-oscuro .plan-info,
+body.modo-oscuro .autoevaluacion,
+body.modo-oscuro .test-info,
+body.modo-oscuro .nutricionistas-info,
+body.modo-oscuro .rutina-table-container,
+body.modo-oscuro .contacto-destacado,
+body.modo-oscuro .chart-card,
+body.modo-oscuro .dieta-info,
+body.modo-oscuro .plan-comidas,
+body.modo-oscuro .sub-hero,
+body.modo-oscuro .recetasContainer {
+  background-color: var(--color-card-background) !important;
+  color: var(--color-texto) !important;
+  box-shadow: 0 6px 12px var(--color-sombra);
+  border-color: var(--oscuro-borde);
+}
+
+/* 3) Inputs, selects, textareas */
+body.modo-oscuro input,
+body.modo-oscuro select,
+body.modo-oscuro textarea {
+  background-color: #202020 !important;
+  color: var(--color-texto) !important;
+  border: 1px solid var(--oscuro-borde) !important;
+}
+body.modo-oscuro input::placeholder,
+body.modo-oscuro textarea::placeholder {
+  color: #9aa0a6;
+}
+
+/* 4) Botones genéricos y de acción */
+body.modo-oscuro button,
+body.modo-oscuro .btn-volver,
+body.modo-oscuro .btn-principal,
+body.modo-oscuro .descargar-btn,
+body.modo-oscuro .btn-rutina {
+  background-color: var(--color-boton) !important;
+  color: var(--color-texto-claro) !important;
+  border: 1px solid var(--oscuro-borde);
+}
+body.modo-oscuro button:hover,
+body.modo-oscuro .btn-volver:hover,
+body.modo-oscuro .btn-principal:hover,
+body.modo-oscuro .descargar-btn:hover,
+body.modo-oscuro .btn-rutina:hover {
+  background-color: var(--color-boton-hover) !important;
+}
+
+/* 5) Tablas (manteniendo acentos de Fitness/Bienestar) */
+body.modo-oscuro table {
+  background: var(--color-card-background);
+  color: var(--color-texto);
+  border-color: var(--oscuro-borde);
+}
+body.modo-oscuro .tabla-rutina th,
+body.modo-oscuro .tabla-rutina td {
+  border-color: var(--oscuro-borde);
+}
+body.modo-oscuro .tabla-rutina td:nth-child(2) {
+  color: var(--color-texto-secundario);
+}
+
+/* 6) Links */
+body.modo-oscuro a { color: #9adbd2; }
+body.modo-oscuro a:hover { color: #c0f2ec; }
+
+/* 7) Barras / progresos / sliders */
+body.modo-oscuro .progress-bar {
+  background-color: #202020;
+  border: 1px solid var(--oscuro-borde);
+}
+body.modo-oscuro .progress {
+  background-color: var(--color-boton); /* mantiene acento */
+}
+
+/* 8) Bordes/Separadores sutiles */
+body.modo-oscuro hr,
+body.modo-oscuro .divider {
+  border-color: var(--oscuro-borde);
+}
+
+
+/* Elimina el blanco del contenedor del test y del wrapper */
+body.modo-oscuro #bienestarTest,
+body.modo-oscuro .autoevaluacion {
+  background: var(--oscuro-fondo) !important;   /* o var(--oscuro-header) si te gusta un poco más claro */
+  box-shadow: none; /* opcional */
+}
+
+/* Asegura el fondo oscuro de cada tarjeta de pregunta */
+body.modo-oscuro .pregunta {
+  background: var(--oscuro-header) !important;
+  color: var(--oscuro-texto);
+}
+
+/* Si usas bordes o líneas, que no queden claros */
+body.modo-oscuro .pregunta,
+body.modo-oscuro .pregunta-opciones {
+  border-color: rgba(255,255,255,.15);
+}
+
+
+/* 🔹 Títulos en modo oscuro */
+body.modo-oscuro h1,
+body.modo-oscuro h2,
+body.modo-oscuro h3,
+body.modo-oscuro h4,
+body.modo-oscuro h5,
+body.modo-oscuro h6 {
+  color: var(--oscuro-texto) !important;
+}
+
+/* 🔹 Subrayados y bordes de títulos */
+body.modo-oscuro .titulo-seccion {
+  border-color: var(--oscuro-texto) !important;
 }
