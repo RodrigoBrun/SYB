@@ -294,3 +294,28 @@
   text-align: center;
 }
 
+/* 🔧 Alinear el test de bienestar a la izquierda */
+.autoevaluacion { 
+  display: block; 
+}
+
+#bienestarTest {
+  padding: 25px;          /* mantenemos padding general */
+  padding-left: 0 !important;  /* ⛔️ quita el desplazamiento a la derecha */
+  text-align: left;
+}
+
+.pregunta {
+  margin-left: 0 !important;   /* por si quedó algún margen heredado */
+  width: 100%;
+  align-items: flex-start;
+}
+
+.pregunta-opciones {
+  justify-content: flex-start;  /* Sí / No a la izquierda */
+}
+
+/* Por si en móvil algún estilo lo vuelve a empujar */
+@media (max-width: 768px) {
+  #bienestarTest { padding: 20px; padding-left: 0 !important; }
+}
