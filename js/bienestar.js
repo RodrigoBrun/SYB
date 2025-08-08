@@ -7,35 +7,62 @@
 ========================================= */
 
 /* ---------- Datos de psicólogos (demo) ---------- */
-const psicologos = {
-  montevideo: [
-    {
-      nombre: "Lic. Sofía Pereira",
-      enfoque: "Mindfulness & Ansiedad",
-      contacto: "099 111 111",
-      email: "sofia@bienestar.com",
-      dias: "Lun a Jue",
-      imagen: "imagenes/default.png",
-      observacion: "Atiende de forma presencial y online.",
-      whatsapp: "https://wa.me/59899111111",
-      instagram: "https://instagram.com/sofia.mind"
+  const psicologos = {
+    montevideo: [
+      {
+        nombre: "Dr. Pablo Torres",
+        telefono: "0111111111",
+        correo: "pablo@psico.com",
+        dias: "Martes y Jueves",
+        imagen: "imagenes/psico2.jpg"
+      }
+    ],
+    canelones: [
+      {
+        nombre: "Lic. Lucía Ferreira",
+        telefono: "011111111",
+        correo: "lucia@psico.com",
+        dias: "Viernes",
+        imagen: "imagenes/psico3.jpg"
+      }
+    ],
+    artigas: [],
+    salto: [],
+    paysandu: [],
+    rio_negro: [],
+    soriano: [],
+    colonia: [],
+    san_jose: [],
+    flores: [],
+    florida: [],
+    lavalleja: [],
+    durazno: [],
+    cerro_largo: [],
+    treinta_y_tres: [],
+    rocha: [],
+    maldonado: [],
+    tacuarembo: [],
+    rivera: []
+  };
+
+  // 🔹 Definís a Diego como objeto independiente
+  const diego = {
+    nombre: "Lic. Diego Nicolas Díaz Gómez",
+    telefono: "092612409",
+    correo: "diego.bndg@gmail.com",
+    dias: "Lunes a viernes (martes no) de 13:00 a 18:00",
+    imagen: "imagenes/fotoDiegue.jpg",
+    whatsapp: "https://wa.me/59892612409",
+    instagram: "https://www.instagram.com/psicodiegotcc?igsh=MTViZ3R4M282ODV0MA==",
+    observacion: "Atiende presencial solo en Montevideo. Resto del país: modalidad online 🖥️"
+  };
+
+    // 🔹 Lo agregás a todos los departamentos si aún no está
+  for (const dep in psicologos) {
+    if (!psicologos[dep].some(p => p.nombre === diego.nombre)) {
+      psicologos[dep].push(diego);
     }
-  ],
-  canelones: [
-    {
-      nombre: "Lic. Diego Álvarez",
-      enfoque: "Terapia Cognitivo Conductual",
-      contacto: "098 222 222",
-      email: "diego@psico.com",
-      dias: "Martes y Jueves",
-      imagen: "imagenes/default.png",
-      observacion: "Sesiones individuales y de pareja.",
-      whatsapp: "https://wa.me/59898222222",
-      instagram: "https://instagram.com/diego.tcc"
-    }
-  ]
-  // …otros deptos vacíos por ahora
-};
+  }
 
 /* ---------- Mostrar psicólogos por depto ---------- */
 function mostrarPsicologos() {
