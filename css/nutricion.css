@@ -2,13 +2,17 @@
    🎯 Sección: Nutrición
 ========================================= */
 /* 🎯 Sección Nutrición - Caja principal */
+/* 🎯 Sección Nutrición - Caja principal (FIX centrado) */
 #nutricion {
-    background: var(--color-card-background); /* Usa variable nueva */
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px var(--color-sombra); /* Usa variable nueva */
-    margin: 20px 0;
+  background: var(--color-card-background);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px var(--color-sombra);
+  margin: 20px auto;        /* ← antes: 20px 0  | ahora centra */
+  max-width: 1000px;        /* asegura el mismo ancho que .seccion */
+  box-sizing: border-box;   /* evita desbordes por padding */
 }
+
 
 #nutricion h2 {
     font-size: 3rem;
@@ -289,37 +293,37 @@
    🔹 Adaptado para usar solo variables existentes en :root
 ========================================= */
 #calculadora {
-    width: 90%;
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
-    background: var(--color-fondo); /* Antes: var(--card-background) */
-    border-radius: 15px;
-    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-    text-align: center;
+  width: 100%;                 /* antes 90% */
+  max-width: 700px;
+  margin: 24px auto;           /* centra horizontal */
+  padding: 24px;               /* un poco menos para mobile */
+  box-sizing: border-box;      /* 👈 evita que el padding sume al ancho */
+  background: var(--color-fondo);
+  border-radius: 15px;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+  text-align: center;
 }
 
 #calculadora h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: var(--color-texto); /* Antes: var(--text-color) */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: var(--color-texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 #inputsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 @media (max-width: 768px) {
-    #inputsGrid {
-        grid-template-columns: 1fr;
-    }
+  #inputsGrid { grid-template-columns: 1fr; }
+  #calculadora { padding: 18px; margin: 20px auto; } /* compacta un poco */
 }
 
 .campo label {
