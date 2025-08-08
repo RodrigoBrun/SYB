@@ -58,6 +58,27 @@ a {
   margin: 0 auto;
 }
 
+
+
+
+
+  /* Banner publicitario en Header */
+  .ad-banner {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    backdrop-filter: blur(5px);
+    margin-top: 15px;
+    transition: transform var(--transition-speed);
+  }
+  
+  .ad-banner:hover {
+    transform: scale(1.05);
+  }
+
 /* =====================================
    🧭 Navbar
 ===================================== */
@@ -78,37 +99,106 @@ a {
 }
 
 /* =====================================
-   📱 Menú lateral (mobile)
+   📱 Menú lateral (mobile) — Glow & Glass
 ===================================== */
 .hamburguesa {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
+  display: none;                 /* se muestra solo en mobile (abajo) */
+  font-size: 22px;
+  line-height: 1;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: var(--color-card-background);
+  box-shadow: 0 3px 10px var(--color-sombra);
 }
 
+/* Panel */
 .sidebar {
-  display: none;
+  display: none;                 /* la enciende tu JS */
   position: fixed;
-  top: 0;
-  left: 0;
-  background-color: var(--color-header);
-  height: 100%;
-  width: 250px;
-  padding: 60px 20px;
+  inset: 0 auto 0 0;             /* top:0; right:auto; bottom:0; left:0 */
+  width: min(82vw, 320px);       /* responsivo con cap */
+  padding: 28px 20px;
   z-index: 1000;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+
+  /* Glass vibe */
+  background: color-mix(in srgb, var(--color-header) 88%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  border-right: 1px solid color-mix(in srgb, var(--color-texto) 10%, transparent);
+  box-shadow: 6px 0 24px rgba(0,0,0,.12);
+
   transform: translateX(-100%);
-  transition: transform 0.3s ease;
+  transition: transform .28s ease;
+  overflow-y: auto;              /* si la lista es larga */
+  overscroll-behavior: contain;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
 }
 
-.sidebar.active {
-  transform: translateX(0);
-}
+.sidebar.active { transform: translateX(0); }
+
+/* Enlaces */
+.sidebar nav { display: grid; gap: 6px; }
 
 .sidebar a {
-  display: block;
-  margin-bottom: 20px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: var(--color-texto);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: .2px;
+  transition: background .2s ease, transform .12s ease;
+}
+
+/* pill hover + ligera elevación */
+.sidebar a:hover {
+  background: color-mix(in srgb, var(--color-secundario) 12%, transparent);
+  transform: translateX(2px);
+}
+
+/* estado activo (si querés aplicarlo desde JS o con :target) */
+.sidebar a.is-active {
+  background: color-mix(in srgb, var(--color-secundario) 18%, transparent);
+  outline: 2px solid color-mix(in srgb, var(--color-secundario) 40%, transparent);
+}
+
+/* separador sutil entre grupos (opcional si querés usar <hr> en el HTML) */
+.sidebar hr {
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--color-texto) 10%, transparent);
+  margin: 10px 0;
+}
+
+/* Modo oscuro */
+body.modo-oscuro .hamburguesa {
+  background: var(--oscuro-header);
+  border-color: rgba(255,255,255,.06);
+}
+
+body.modo-oscuro .sidebar {
+  background: color-mix(in srgb, var(--oscuro-header) 85%, transparent);
+  border-right-color: rgba(255,255,255,.08);
+  box-shadow: 8px 0 28px rgba(0,0,0,.5);
+}
+
+body.modo-oscuro .sidebar a { color: var(--oscuro-texto); }
+body.modo-oscuro .sidebar a:hover {
+  background: color-mix(in srgb, var(--oscuro-boton) 22%, transparent);
+}
+body.modo-oscuro .sidebar a.is-active {
+  background: color-mix(in srgb, var(--oscuro-boton) 26%, transparent);
+  outline-color: color-mix(in srgb, var(--oscuro-boton) 50%, transparent);
+}
+
+/* Mobile only: muestra hamburguesa y sidebar */
+@media (max-width: 768px) {
+  .hamburguesa { display: inline-flex; }
+  .sidebar { display: block; }
 }
 
 
