@@ -6,63 +6,7 @@
    - Test + barra de progreso
 ========================================= */
 
-/* ---------- Datos de psicólogos (demo) ---------- */
-  const psicologos = {
-    montevideo: [
-      {
-        nombre: "Dr. Pablo Torres",
-        telefono: "0111111111",
-        correo: "pablo@psico.com",
-        dias: "Martes y Jueves",
-        imagen: "imagenes/psico2.jpg"
-      }
-    ],
-    canelones: [
-      {
-        nombre: "Lic. Lucía Ferreira",
-        telefono: "011111111",
-        correo: "lucia@psico.com",
-        dias: "Viernes",
-        imagen: "imagenes/psico3.jpg"
-      }
-    ],
-    artigas: [],
-    salto: [],
-    paysandu: [],
-    rio_negro: [],
-    soriano: [],
-    colonia: [],
-    san_jose: [],
-    flores: [],
-    florida: [],
-    lavalleja: [],
-    durazno: [],
-    cerro_largo: [],
-    treinta_y_tres: [],
-    rocha: [],
-    maldonado: [],
-    tacuarembo: [],
-    rivera: []
-  };
 
-  // 🔹 Definís a Diego como objeto independiente
-  const diego = {
-    nombre: "Lic. Diego Nicolas Díaz Gómez",
-    telefono: "092612409",
-    correo: "diego.bndg@gmail.com",
-    dias: "Lunes a viernes (martes no) de 13:00 a 18:00",
-    imagen: "imagenes/fotoDiegue.jpg",
-    whatsapp: "https://wa.me/59892612409",
-    instagram: "https://www.instagram.com/psicodiegotcc?igsh=MTViZ3R4M282ODV0MA==",
-    observacion: "Atiende presencial solo en Montevideo. Resto del país: modalidad online 🖥️"
-  };
-
-    // 🔹 Lo agregás a todos los departamentos si aún no está
-  for (const dep in psicologos) {
-    if (!psicologos[dep].some(p => p.nombre === diego.nombre)) {
-      psicologos[dep].push(diego);
-    }
-  }
 
 /* ---------- Mostrar psicólogos por depto ---------- */
 function mostrarPsicologos() {
@@ -248,24 +192,73 @@ function generarPlanBienestar() {
 })();
 
 function mostrarResultadosTest() {
-  const form = document.getElementById("bienestarTest");
-  const out = document.getElementById("testResultados");
-  if (!form || !out) return;
+  // Obtener las respuestas del formulario
+  const respuestas = {
+    estres: document.querySelector('input[name="estresTest"]:checked')?.value,
+    suenio: document.querySelector('input[name="suenioTest"]:checked')?.value,
+    alimentacion: document.querySelector('input[name="alimentacionTest"]:checked')?.value,
+    actividad: document.querySelector('input[name="actividadTest"]:checked')?.value,
+    emociones: document.querySelector('input[name="emocionesTest"]:checked')?.value,
+    satisfaccion: document.querySelector('input[name="satisfaccionTest"]:checked')?.value
+  };
 
-  const si = form.querySelectorAll('input[type="radio"][value="si"]:checked').length;
-  const totalPreg = form.querySelectorAll('.pregunta').length;
-  const score = Math.round((si / totalPreg) * 100);
+  // Validar que todas las respuestas estén seleccionadas
+  if (Object.values(respuestas).includes(undefined)) {
+    document.getElementById("testResultados").innerHTML = "Por favor, responde todas las preguntas.";
+    return;
+  }
 
-  let mensaje =
-    score >= 80 ? "¡Excelente! Tu bienestar está muy sólido. Mantén tus hábitos. 💪" :
-    score >= 50 ? "Vas bien. Hay margen para ajustar rutinas y descansos. ✨" :
-                  "Sería bueno enfocarnos en descanso, gestión del estrés y hábitos base. 💜";
+  // Calcular el bienestar general
+  let bienestar = 0;
+  const recomendaciones = [];
 
-  out.innerHTML = `
-    <div class="test-box">
-      <h4>Resultado</h4>
-      <p><strong>Puntaje:</strong> ${score}%</p>
-      <p>${mensaje}</p>
-    </div>
-  `;
+  // Evaluar las respuestas y generar recomendaciones
+  if (respuestas.estres === 'no') bienestar++;
+  else recomendaciones.push("Te recomendamos practicar técnicas de relajación como meditación o respiración profunda para reducir el estrés.");
+
+  if (respuestas.suenio === 'si') bienestar++;
+  else recomendaciones.push("Intenta establecer una rutina de sueño regular, evitar pantallas antes de dormir y crear un ambiente relajante para mejorar la calidad de tu sueño.");
+
+  if (respuestas.alimentacion === 'si') bienestar++;
+  else recomendaciones.push("Considera consultar con un nutricionista para crear un plan de alimentación balanceada que cubra tus necesidades y objetivos.");
+
+  if (respuestas.actividad === 'si') bienestar++;
+  else recomendaciones.push("Incorpora ejercicio moderado en tu rutina diaria. Caminar, nadar o hacer yoga son opciones efectivas.");
+
+  if (respuestas.emociones === 'si') bienestar++;
+  else recomendaciones.push("Tómate tiempo para ti mismo, busca apoyo emocional cuando lo necesites y considera practicar actividades que fomenten el bienestar emocional como el journaling o terapia.");
+
+  if (respuestas.satisfaccion === 'si') bienestar++;
+  else recomendaciones.push("Reflexiona sobre lo que te gustaría cambiar en tu vida y establece pequeños objetivos alcanzables que te ayuden a sentirte más satisfecho.");
+
+  // Mostrar los resultados generales y recomendaciones
+  let resultadoTexto = "";
+  if (bienestar === 6) {
+    resultadoTexto = "¡Excelente! Tu bienestar es muy alto. Sigue cuidando de ti mismo.";
+  } else if (bienestar >= 4) {
+    resultadoTexto = "Estás en buen camino, pero hay algunos aspectos que podrías mejorar.";
+  } else if (bienestar >= 2) {
+    resultadoTexto = "Parece que podrías beneficiarte de hacer algunos cambios en tu vida para mejorar tu bienestar.";
+  } else {
+    resultadoTexto = "Te recomendamos que busques maneras de mejorar tu bienestar, especialmente en áreas clave.";
+  }
+
+  // Mostrar los resultados
+  let recomendacionesTexto = "";
+  if (recomendaciones.length > 0) {
+    recomendacionesTexto = "<h4>Recomendaciones:</h4><ul>";
+    recomendaciones.forEach(recomendacion => {
+      recomendacionesTexto += `<li>${recomendacion}</li>`;
+    });
+    recomendacionesTexto += "</ul>";
+  }
+
+  document.getElementById("testResultados").innerHTML = `
+        <p><strong>Resultados de tu test de bienestar:</strong></p>
+        <p>${resultadoTexto}</p>
+        ${recomendacionesTexto}
+    `;
+
+  // Llamar a la función para actualizar la barra de progreso al final de los resultados
+  updateProgress();
 }

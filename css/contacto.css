@@ -1,37 +1,44 @@
-/* =========================================
-   Sección Contacto
-========================================= */
-.contacto-invitacion {
-  background: #f3e8dc;
-  padding: 60px 20px;
-  border-radius: 20px;
-  text-align: center;
-  margin-top: 40px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
+/* ==========================
+   ✉️ CONTACTO (estilos)
+========================== */
+#contacto { margin-top: 1rem; }
+#contacto .contacto-hero { text-align: center; margin-bottom: 1rem; }
+#contacto .contacto-hero h2 { margin: 0 0 .5rem; }
+#contacto .contacto-cta { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin-top: .6rem; }
+#contacto .btn { border: 1px solid var(--borde,#e5e5e5); border-radius: .75rem; padding: .6rem .9rem; cursor: pointer; font-weight: 700; display: inline-flex; align-items: center; gap: .45rem; text-decoration: none; }
+#contacto .btn-wa { background: #25D366; color: #fff; border-color: #25D366; }
+#contacto .btn-email { background: var(--color-boton,#0066ff); color: #fff; border-color: var(--color-boton,#0066ff); }
+#contacto .btn-copy { background: #ffd166; color: #222; }
 
-.contacto-invitacion h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #2c3e50;
-}
+#contacto .contacto-grid { display: grid; gap: 1rem; grid-template-columns: 1.2fr .8fr; align-items: start; }
+@media (max-width: 900px) { #contacto .contacto-grid { grid-template-columns: 1fr; } }
 
-.contacto-invitacion p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
-  color: #34495e;
+#contacto form { background: var(--card-bg,#fff); border: 1px solid var(--borde,#e5e5e5); border-radius: 1rem; padding: 1rem; }
+#contacto .campo { display: grid; gap: .35rem; margin-bottom: .75rem; }
+#contacto .campo input, #contacto .campo select, #contacto .campo textarea {
+  border: 1px solid var(--borde,#ddd); border-radius: .6rem; padding: .6rem .75rem; background: var(--input-bg,#fff); color: var(--texto,#222);
 }
+#contacto .hp { position: absolute; left: -9999px; opacity: 0; } /* honeypot */
 
-.contacto-invitacion a {
-  color: #1abc9c;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
-}
+#contacto .fila { grid-auto-flow: column; align-items: center; justify-content: space-between; }
+#contacto .check { display: flex; gap: .5rem; align-items: center; }
 
-.contacto-invitacion a:hover {
-  border-bottom: 2px solid #1abc9c;
-}
+#contacto .acciones { display: flex; gap: .6rem; align-items: center; }
+#contacto .btn-primary { background: var(--color-boton,#0066ff); color: #fff; border-color: var(--color-boton,#0066ff); }
+#contacto .btn-ghost { background: transparent; }
+
+#contacto .error { color: #c0392b; font-size: .85rem; min-height: 1em; }
+#contacto .nota-priv { opacity: .8; font-size: .9rem; margin-top: .25rem; }
+
+#contacto .contacto-side { background: var(--card-bg,#fff); border: 1px solid var(--borde,#e5e5e5); border-radius: 1rem; padding: 1rem; }
+#contacto .bullets { margin: .25rem 0 1rem; padding-left: 1.1rem; }
+#contacto .mini-cards { display: flex; gap: .5rem; flex-wrap: wrap; }
+#contacto .mini-card { padding: .45rem .6rem; border-radius: .6rem; border: 1px solid var(--borde,#ddd); background: var(--pill,#f7faff); }
+
+#contacto .toast { position: fixed; bottom: 16px; right: 16px; background: #222; color: #fff; padding: .7rem .9rem; border-radius: .7rem; box-shadow: 0 8px 30px rgba(0,0,0,.25); opacity: 0; transform: translateY(8px); pointer-events: none; transition: .25s; z-index: 9999; }
+#contacto .toast.show { opacity: 1; transform: translateY(0); }
+
+/* 🌙 modo oscuro */
+body.modo-oscuro #contacto form,
+body.modo-oscuro #contacto .contacto-side { background: var(--oscuro-header,#121212); border-color: #2a2a2a; }
+body.modo-oscuro #contacto .mini-card { background: #1f2a33; border-color: #24323d; }

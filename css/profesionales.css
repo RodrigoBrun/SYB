@@ -1,0 +1,50 @@
+/* ================================
+   👨‍⚕️ PROFESIONALES (estilos base)
+================================ */
+#profesionales .seccion-header h2 { margin-bottom: .25rem; }
+.filtros-profesionales {
+  display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: end; margin: 1rem 0 1.5rem;
+}
+.filtros-profesionales label { display: grid; gap: .35rem; font-weight: 600; }
+.filtros-profesionales select, 
+.filtros-profesionales input {
+  padding: .6rem .75rem; border-radius: .6rem; border: 1px solid var(--borde, #ddd);
+  background: var(--input-bg, #fff); color: var(--texto, #222);
+}
+
+.cards-profesionales {
+  display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+}
+.card-profesional {
+  border: 1px solid var(--borde, #e5e5e5); border-radius: 1rem; overflow: hidden;
+  background: var(--card-bg, #fff); box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  display: grid; grid-template-rows: auto 1fr auto;
+}
+.card-profesional .cabecera {
+  display: grid; grid-template-columns: 64px 1fr; gap: .75rem; padding: .9rem;
+  border-bottom: 1px solid var(--borde, #eee);
+}
+.card-profesional .avatar {
+  width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: #f3f3f3;
+}
+.card-profesional h3 { margin: 0; font-size: 1.05rem; }
+.card-profesional .meta { font-size: .9rem; opacity: .8; }
+.card-profesional .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: .6rem 0; }
+.card-profesional .tag {
+  font-size: .75rem; padding: .25rem .5rem; border-radius: .5rem;
+  background: var(--pill, #eef6ff); border: 1px solid var(--pill-b, #d9ecff);
+}
+
+.card-profesional .acciones {
+  display: flex; justify-content: space-between; align-items: center; padding: .75rem .9rem;
+  border-top: 1px solid var(--borde, #eee);
+}
+.card-profesional .acciones a {
+  text-decoration: none; font-weight: 700; padding: .5rem .8rem; border-radius: .6rem;
+}
+.card-profesional .btn-whatsapp { background: #25D366; color: #fff; }
+.card-profesional .btn-mail { background: var(--color-boton, #0066ff); color: #fff; }
+
+.estado-listado { text-align: center; padding: 1rem; opacity: .8; }
+

@@ -198,3 +198,19 @@ body.modo-oscuro h6 {
 body.modo-oscuro .titulo-seccion {
   border-color: var(--oscuro-texto) !important;
 }
+
+
+
+/* 🌙 Modo oscuro PROFESIONALES (ajusta a variables globales) */
+body.modo-oscuro #profesionales .card-profesional { background: var(--oscuro-header); border-color: #2a2a2a; }
+body.modo-oscuro #profesionales .filtros-profesionales select,
+body.modo-oscuro #profesionales .filtros-profesionales input { background: #1b1b1b; color: #f1f1f1; border-color: #2e2e2e; }
+body.modo-oscuro #profesionales .tag { background: #1f2a33; border-color: #24323d; }
+
+
+
+/* 🌙 Modo oscuro Recursos (ajusta a variables globales) */
+body.modo-oscuro #recursos .card-recurso { background: var(--oscuro-header); border-color: #2a2a2a; }
+body.modo-oscuro #recursos .controles-recursos select,
+body.modo-oscuro #recursos .controles-recursos input { background: #1b1b1b; color: #f1f1f1; border-color: #2e2e2e; }
+body.modo-oscuro #recursos .tag { background: #1f2a33; border-color: #24323d; }

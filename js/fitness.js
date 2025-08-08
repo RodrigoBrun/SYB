@@ -7,51 +7,7 @@
 
 /* ---------------------------------
    📚 "Base de datos" de trainers
-   (podés mover esto a clases.js si querés)
 --------------------------------- */
-const TRAINERS_DB = {
-  montevideo: [
-    {
-      nombre: "Prof. Juan Martínez",
-      especialidad: "Fuerza & Resistencia",
-      telefono: "011111111",
-      email: "juan@trainer.com",
-      dias: "Lunes, Miércoles y Viernes",
-      imagen: "imagenes/default.png",
-      observacion: "Entrenamientos al aire libre en Parque Rodó.",
-      whatsapp: "https://wa.me/59891111111",
-      instagram: "https://instagram.com/juanfituy",
-    },
-    {
-      nombre: "Prof. Carla Silva",
-      especialidad: "HIIT & Funcional",
-      telefono: "011111111",
-      email: "carla@trainer.com",
-      dias: "Martes y Jueves",
-      imagen: "imagenes/default.png",
-      observacion: "Especialista en entrenamiento funcional para mujeres.",
-      whatsapp: "https://wa.me/59892222222",
-      instagram: "https://instagram.com/carla.hiit",
-    },
-  ],
-  canelones: [
-    {
-      nombre: "Prof. Leo Rodríguez",
-      especialidad: "Cardio & Core",
-      telefono: "011111111",
-      email: "leo@trainer.com",
-      dias: "Lunes a Viernes",
-      imagen: "imagenes/default.png",
-      observacion: "Sesiones personalizadas en gimnasio privado en Las Piedras.",
-      whatsapp: "https://wa.me/59893333333",
-      instagram: "https://instagram.com/leo.coretraining",
-    },
-  ],
-  maldonado: [], artigas: [], rocha: [], salto: [], colonia: [],
-  tacuarembo: [], cerro_largo: [], durazno: [], flores: [], florida: [],
-  lavalleja: [], soriano: [], rio_negro: [], paysandu: [], san_jose: [],
-  treinta_y_tres: []
-};
 
 /* ---------------------------------
    🗓️ Rutinas semanales por tipo/nivel
